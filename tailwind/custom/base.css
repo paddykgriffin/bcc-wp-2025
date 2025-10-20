@@ -1,0 +1,43 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `base` layer
+ */
+
+/**
+ * This uses the background and foreground colors declared in the `theme.json`
+ * file and is applied both to the front end and in the block editor.
+ */
+body {
+	@apply bg-background text-foreground font-sans;
+}
+
+/**
+ * Headings
+ *
+ * The colors here use the custom color names declared in the `theme.json`
+ * file. You can change these to any of the default color names provided by
+ * Tailwind (e.g. `text-blue-500`) or add your own custom colors in the
+ * `tailwind.config.js` file.
+ */
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply text-secondary dark:text-primary font-semibold;
+}
+h2 {
+	@apply pb-4 text-6xl;
+}
+h3 {
+	@apply pb-4 text-5xl;
+}
+h4 {
+	@apply pb-4 text-4xl;
+}
+h5 {
+	@apply pb-4 text-3xl;
+}
+h6 {
+	@apply pb-4 text-2xl;
+}
