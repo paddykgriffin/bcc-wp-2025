@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 
 
        <div class="col-span-6">
-         <div class="[&_p]:pb-8 [&_p]:text-xl">
+         <div class="[&_p]:pb-8 [&_p]:text-xl [&_p]:leading-8">
              <h2 class="section-title text-left after:left-0 after:-translate-x-0 mb-10"><?php the_field('prayer_title'); ?></h2>
  <?php the_field('prayer_content'); ?>
  </div>

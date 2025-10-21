@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 
 
        <div class="col-span-6">
-         <div class="[&_p]:pb-8 [&_p]:text-xl">
+         <div class="[&_p]:pb-8 [&_p]:text-xl [&_p]:leading-8">
  <?php the_field('sundays_content'); ?>
  </div>
     <?php 

@@ -9,9 +9,9 @@
  */
 ?>
 
-<section class="bg-secondary py-10 lg:py-20">
+<section class="bg-secondary py-10 lg:py-20" id="what-we-do">
 
-    <div class="container">
+    <div class="container !max-w-[96rem]">
         <h2 class="section-title text-center text-white after:bg-white">What we do</h2>
 
         <?php if (have_rows('grid_boxes', 'option')): ?>
@@ -32,15 +32,18 @@
                     <div class="col-span-3">
 
                         <?php if ($link): ?>
-                            <a href="<?php echo $link; ?>" class="relative group ">
+                             <a href="<?php echo $link; ?>" class="grid group">
                             <?php endif; ?>
 
-                            <div class='grid-name w-2/3 z-10 left-1/2 top-1/2 absolute py-2 text-2xl text-center bg-black/50 border-white border-1 font-serif text-white -translate-x-1/2 -translate-y-1/2 group-hover:bg-black default-transition'>
+                            <div class='col-start-1 row-start-1 flex items-center z-10 justify-center'>
+                            <div class="bg-black/50 text-white text-center py-4 w-2/3 border-white border-1 text-2xl group-hover:bg-black font-serif default-transition">
                                 <?php echo $content; ?>
                             </div>
 
+                        </div>
 
-                            <img src="<?php echo $image['sizes']['tile-md']; ?>" alt="<?php echo $image['alt'] ?>" />
+
+                            <img class="col-start-1 row-start-1" src="<?php echo $image['sizes']['tile-md']; ?>" alt="<?php echo $image['alt'] ?>" />
 
                             <?php if ($link): ?>
                             </a>

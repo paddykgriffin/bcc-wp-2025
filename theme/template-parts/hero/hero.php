@@ -32,7 +32,7 @@
 
     <div class="col-start-1 row-start-1 flex items-center z-20">
 
-        <div class="container max-w-xl">
+        <div class="container !max-w-xl lg:pt-20">
             <h1 class="text-center pb-3 text-white text-2xl">
                 <?php the_field('hero_welcome', 'option'); ?> <span class="hidden">Ballycullen Community Church</span>
 
@@ -78,20 +78,20 @@
                 <?php endif; ?>
             </div>
 
+             <div class="text-center lg:pt-30">
+            <button id="scrollHeroDown" class="">
+                        <span class="material-symbols-outlined !text-[60px] text-white">
+                            keyboard_arrow_down
+                        </span>
+                    </button>
         </div>
 
+        </div>
+       
     </div>
 
 
-    <div class="col-start-1 row-start-1 flex items-end z-10">
-        <div class="container mb-10 ">
-            <div class="text-center text-white py-5">
-                <span class="material-symbols-outlined !text-[60px]">
-                    keyboard_arrow_down
-                </span>
-            </div>
-        </div>
-    </div>
+
 
 
 </section>

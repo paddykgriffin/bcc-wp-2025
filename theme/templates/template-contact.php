@@ -21,8 +21,29 @@ get_header();
 <section class="py-10 md:py-20">
 
 
+<div class="container !max-w-3xl">
+    <?php
+    /* Start the Loop */
+    while (have_posts()):
+        the_post();
+
+        get_template_part('template-parts/content/content', 'page');
+
+        // If comments are open, or we have at least one comment, load
+        // the comment template.
+        if (comments_open() || get_comments_number()) {
+            comments_template();
+        }
+
+    endwhile; // End of the loop.
+    ?>
+
+    
+
+</div>
+
 <div class="container">
-    contact page content...
+    <?php get_template_part( 'template-parts/custom/custom', 'location' ); ?>
 </div>
 </section>
 

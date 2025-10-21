@@ -59,3 +59,44 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeBtn) closeBtn.addEventListener("click", openNav);
     if (overlay) overlay.addEventListener("click", openNav);
 });
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const btns = document.querySelectorAll('.bcc-location-directions-item-header .btn');
+//   btns.forEach(btn => {
+//     btn.addEventListener('click', function () {
+//       this.classList.toggle('active');
+//     });
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtns = document.querySelectorAll('.bcc-location-directions-accordion .btn');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      this.classList.toggle('active'); // Toggle class on button
+      const nextDiv = this.nextElementSibling;
+      if (nextDiv && nextDiv.tagName === 'DIV') {
+        nextDiv.classList.toggle('active');
+      }
+    });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.getElementById("scrollHeroDown");
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", () => {
+      const heroSection = document.getElementById("latest-sermon");
+      if (heroSection) {
+        const nextSection = heroSection.nextElementSibling;
+        if (nextSection) {
+          const offset = 380; // Change this value to your desired offset in px
+          const top = nextSection.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }
+    });
+  }
+});

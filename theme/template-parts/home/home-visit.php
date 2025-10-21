@@ -9,7 +9,7 @@
  */
 ?>
 
-<section class="py-10 lg:py-20">
+<section class="py-10 lg:py-20 ">
 
      <div class="container">
         <div class="text-center md:max-w-1/2 mx-auto">
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="container p-0 py-20 max-w-full">
+    <div class="container p-0 py-20 !max-w-full">
          
     <div class="relative">
           <?php
@@ -43,7 +43,7 @@
 </div>
 
 
- <div class="container max-w-xl">
+ <div class="container !max-w-xl">
 
 <div class="grid md:grid-cols-12 gap-8">
 

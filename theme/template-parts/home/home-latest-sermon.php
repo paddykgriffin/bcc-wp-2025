@@ -9,7 +9,7 @@
  */
 ?>
 
-<section class=" py-10 lg:py-20">
+<section class=" py-10 lg:py-20" id="latest-sermon">
 
     <div class="container">
         <div class="text-center">

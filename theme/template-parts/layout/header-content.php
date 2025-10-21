@@ -12,18 +12,19 @@
 
 <header id="masthead" class="fixed px-4 md:px-5 top-0 left-0 w-full navbar z-50 default-transition flex justify-end md:p-10 items-center">
 
-	<div>
+	<div class="block md:hidden logo">
 		<?php
 		if (is_front_page()) :
 		?>
-			<h1 class="logo text-white">
-				<div class="sr-only"><?php bloginfo('name'); ?> </div>
-				<img src="<?php bloginfo('template_directory'); ?>/img/logo-white.svg" alt="<?php bloginfo('name'); ?>" class="w-[200px]" />
-			</h1>
+			<a href="<?php echo esc_url(home_url('/')); ?>" className="group">
+				<img src="<?php bloginfo('template_directory'); ?>/img/logo-white.svg" alt="<?php bloginfo('name'); ?>" class="w-[200px] hover:opacity-50 default-transition" />
+			</a>
 		<?php
 		else :
 		?>
-			<img src="<?php bloginfo('template_directory'); ?>/img/logo-white.svg" alt="<?php bloginfo('name'); ?>" class="w-[250px]" />
+		<a href="<?php echo esc_url(home_url('/')); ?>" className="group">
+			<img src="<?php bloginfo('template_directory'); ?>/img/logo-white.svg" alt="<?php bloginfo('name'); ?>" class="w-[250px] hover:opacity-50 default-transition" />
+			</a>
 		<?php
 		endif;
 

@@ -35,7 +35,7 @@
 .page-content > *,
 .entry-content > * {
 	/* Content width from the `theme.json` file */
-	@apply max-w-content mx-auto;
+	/* @apply max-w-content mx-auto; */
 }
 
 .entry-content > .alignwide {
@@ -55,6 +55,11 @@
 	@apply float-right ml-8;
 }
 
+.container {
+	@apply !max-w-wide mx-auto px-4;
+	/* max-width: var(--container-content); */
+}
+
 /**
  * Button styles
  *
@@ -70,17 +75,8 @@
 	@apply transition-all duration-300;
 }
 
-.container {
-	@apply mx-auto px-4;
-	max-width: var(--container-content);
-}
-
 .nav-primary-link {
 	@apply hover:text-tertiary before:bg-tertiary aria-[current=page]:text-tertiary relative block border-b border-white/70 px-6 py-4 font-medium text-white transition-colors duration-300 ease-in-out before:absolute before:bottom-0 before:left-0 before:block before:h-[1px] before:w-0 before:transition-[width] before:duration-300 before:ease-in-out hover:before:w-full aria-[current=page]:before:w-full md:border-0 lg:px-0 lg:py-0;
-}
-
-.logo {
-	@apply hidden;
 }
 
 .scrolled {
@@ -95,6 +91,7 @@
 	@apply after:bg-primary relative mb-4 pb-8 font-serif text-5xl font-normal after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60px] after:-translate-x-1/2 after:content-[''];
 }
 
+/* Mailchimp form styles */
 .mc4wp-form-fields {
 	@apply mt-4;
 }
@@ -107,10 +104,103 @@
 	@apply text-lg;
 }
 
+/* Navbar styles for subpage template */
 .page-template .navbar {
 	@apply justify-between bg-[#1d1f10e6] py-5;
+}
+.page-template .navbar .logo {
+	@apply block;
+}
+
+.page-template-default .navbar {
+	@apply justify-between bg-[#1d1f10e6] py-5;
+}
+.page-template-default .navbar .logo {
+	@apply block;
+}
+
+.post-type-archive-sermons .navbar {
+	@apply justify-between bg-[#1d1f10e6] py-5;
+}
+.post-type-archive-sermons .navbar .logo {
+	@apply block;
+}
+
+/* Prose overrides */
+.prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+	@apply !text-primary !mb-6 !text-5xl;
 }
 
 .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
 	@apply !text-primary !text-3xl;
+}
+
+.prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+	@apply !text-tertiary !text-3xl;
+}
+
+/* Contact Form */
+.wp-block-contact-form-7-contact-form-selector {
+	@apply bg-secondary mx-auto max-w-2xl px-20 py-10 text-center text-white;
+}
+
+.wp-block-contact-form-7-contact-form-selector .section-title p {
+	@apply mb-0;
+}
+
+.wp-block-contact-form-7-contact-form-selector .form-subtitle {
+	@apply mb-12 text-lg;
+}
+
+.wp-block-contact-form-7-contact-form-selector .form-row {
+	@apply my-4;
+}
+
+.wpcf7-form {
+	@apply mx-auto;
+}
+
+.wp-block-contact-form-7-contact-form-selector input[type="text"] {
+	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white placeholder:text-white;
+}
+
+.wp-block-contact-form-7-contact-form-selector input[type="email"] {
+	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white placeholder:text-white;
+}
+
+.wp-block-contact-form-7-contact-form-selector select {
+	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white;
+}
+
+.wp-block-contact-form-7-contact-form-selector textarea {
+	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white placeholder:text-white;
+}
+
+.wp-block-contact-form-7-contact-form-selector input[type="submit"] {
+	@apply bg-tertiary hover:bg-primary px-12 py-3 text-center font-serif text-2xl tracking-wide text-white no-underline hover:cursor-default;
+}
+
+.wpcf7-not-valid-tip {
+	@apply mt-2 bg-red-500 text-white;
+}
+
+/* Location template styles */
+.location-content.active {
+	@apply block;
+}
+
+.bcc-location-directions-accordion .btn.active span {
+	@apply rotate-180;
+}
+
+/* PDF Embed styles */
+.wp-block-file {
+	@apply my-12;
+}
+.wp-block-file a {
+	@apply font-serif text-lg no-underline;
+}
+
+.wp-block-file a.wp-block-file__button {
+	@apply !bg-tertiary hover:bg-primary px-8 py-4 text-center font-serif text-2xl tracking-wide text-white no-underline;
 }

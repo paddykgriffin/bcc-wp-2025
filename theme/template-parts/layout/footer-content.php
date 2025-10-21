@@ -17,7 +17,7 @@
 		<div class="grid md:grid-cols-12 gap-6">
 			<div class="md:col-span-4 ">
 			
-				<?php get_template_part('template-parts/layout/footer', 'mailchimp'); ?>
+				<?php get_template_part('template-parts/sidebar/sidebar', 'mailchimp'); ?>
 
 
 			</div>

@@ -10,18 +10,18 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 
-<section class="py-10 md:py-30">
+<section class="py-10 md:py-30" id="about-who">
 <div class="container">
     <div class="text-center">
         <h2 class="section-title"><?php the_field('who_title'); ?></h2>
     </div>
     <div class="grid grid-cols-12 gap-12 items-center pt-10">
             <div class="col-span-6">
-  <div class="[&_p]:pb-8 ">
+  <div class="[&_p]:pb-8 [&_p]:text-xl">
      <?php the_field('who_content'); ?>
   </div>
      <div class="pt-5 pb-3">
-                    <p class="font-semibold mb-0"><?php the_field('who_buttons_title'); ?></p>
+                    <p class="font-semibold mb-0 text-xl"><?php the_field('who_buttons_title'); ?></p>
                 </div>
 
 

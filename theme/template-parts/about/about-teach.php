@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<section class="py-10 md:py-30">
+<section class="py-10 md:py-30" id="about-teach">
 
 <div class="container">
   <div class="text-center">
@@ -35,11 +35,11 @@ defined( 'ABSPATH' ) || exit;
         </div>
 
             <div class="col-span-6">
-  <div class="[&_p]:pb-8">
+  <div class="[&_p]:pb-8 [&_p]:text-xl [&_p]:leading-8">
      <?php the_field('teach_content'); ?>
   </div>
      <div class="pt-5 pb-3">
-                    <p class="font-semibold mb-0"><?php the_field('who_buttons_title'); ?></p>
+                    <p class="font-semibold mb-0 text-xl"><?php the_field('who_buttons_title'); ?></p>
                 </div>
 
 
@@ -52,11 +52,11 @@ defined( 'ABSPATH' ) || exit;
 
                     if( $link ): 
                         $link_url = $link['url'];
-                        $link_title = $link['title'];
-                        $link_target = $link['target'] ? $link['target'] : '_self';
+                        //$link_title = $link['title'];
+                      //  $link_target = $link['target'] ? $link['target'] : '_self';
                         ?>
                         <div class="col-span-6">
-                            <a class="btn bg-primary border-primary border-2 block default-transition hover:bg-secondary  hover:border-secondary hover:text-primary" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+                            <a class="btn bg-primary border-primary border-2 block default-transition hover:bg-secondary  hover:border-secondary hover:text-primary" href="<?php echo esc_url($link_url); ?>" target="_blank">Our Beliefs</a>
                         </div>
                     <?php endif; ?>
 

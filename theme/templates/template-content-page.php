@@ -21,7 +21,8 @@ get_header();
 <section class="py-10 md:py-10">
 
 
- <?php
+<div class="container !max-w-3xl">
+     <?php
     /* Start the Loop */
     while (have_posts()):
         the_post();
@@ -36,6 +37,7 @@ get_header();
 
     endwhile; // End of the loop.
     ?>
+</div>
 </section>
 
 

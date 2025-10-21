@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 
                          <div class="col-span-6 w-1/2 text-container">
                                <h4 class="text-white"><?php echo $title; ?></h4>
-                                <div class="[&_p]:text-lg [&_p]:text-white [&_p]:leading-8 [&_p]:mb-4">
+                                <div class="[&_p]:text-xl [&_p]:text-white [&_p]:leading-8 [&_p]:mb-4">
                                     <?php echo $text; ?>
                                 </div>
                         </div>

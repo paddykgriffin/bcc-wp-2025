@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
     </div>
 
    <div class="text-center py-10">
-         <div class="mb-6">
+         <div class="mb-6 [&_p]:leading-8 [&_p]:text-xl">
              <?php the_field('sermons_content'); ?>
          </div>
 
@@ -44,7 +44,7 @@ chevron_forward
     </div>
 
    <div class="text-center py-10">
-           <p><?php the_field('podcast_content'); ?></p>
+           <p class="text-xl leading-8"><?php the_field('podcast_content'); ?></p>
     </div>
 
     <div class="grid grid-cols-12 gap-6">

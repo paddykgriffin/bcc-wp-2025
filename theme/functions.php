@@ -16,7 +16,7 @@ if (! defined('BCC_VERSION')) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define('BCC_VERSION', '1.1.1');
+	define('BCC_VERSION', '1.1.12');
 }
 
 if (! defined('BCC_TYPOGRAPHY_CLASSES')) {
@@ -292,7 +292,7 @@ function enqueue_google_icons()
 add_action('wp_enqueue_scripts', 'enqueue_google_icons');
 
 /**
- * Hide admin bar
+ * Function - Hide Admin Bar
  */
 add_filter('show_admin_bar', '__return_false');
 
@@ -313,17 +313,25 @@ function add_primary_menu_link($atts, $item, $args, $depth)
 add_filter('nav_menu_link_attributes', 'add_primary_menu_link', 10, 4);
 
 
-// Tile/Square Images
+/**
+ * Function - Tile/Square Images
+ */
 add_image_size('tile-sm', 200, 200, true);
 add_image_size('tile-md', 400, 400, true);
 add_image_size('tile-lg', 800, 800, true);
 
-//Content Images (recentangles)
+
+/**
+ * Function - Content Images (recentangles)
+ */
 add_image_size('landscape', 640, 400, true);
 add_image_size('landscape-md', 960, 600, true);
 add_image_size('landscape-lg', 1280, 800, true);
 
 
+/**
+ * Function - Desktop Hero Images
+ */
 add_image_size('desktop-lg-hero', 1440, 900, true);
 add_image_size('desktop-xl-hero', 1680, 1050, true);
 add_image_size('desktop-xxl-hero', 1920, 1080, true);
@@ -336,7 +344,9 @@ add_image_size('desktop-xxxl-hero', 2465, 1216, true);
 
 
 
-/* This function returns the menu name */
+/**
+ * Function - Returns Menu Name
+ */
 function wp_nav_menu_title($theme_location)
 {
 	$title = '';
@@ -348,11 +358,22 @@ function wp_nav_menu_title($theme_location)
 	}
 	return apply_filters('wp_nav_menu_title', $title, $theme_location);
 }
-/* Then in your theme you'll want to echo it out. e.g. <h3><?php echo wp_nav_menu_title('document'); ?></h3>
-*  The menu location is set in your register_nav_menu in functions.php
-*/
+
+/**
+ * Function - Add Menu Item Class
+ */
+function add_menu_list_item_class($classes, $item, $args) {
+  if (property_exists($args, 'list_item_class')) {
+      $classes[] = $args->list_item_class;
+  }
+  return $classes;
+}
+add_filter('nav_menu_css_class', 'add_menu_list_item_class', 1, 3);
 
 
+/**
+ * Function - Add Menu Link Class
+ */
 function add_menu_link_class( $atts, $item, $args ) {
   if (property_exists($args, 'link_class')) {
     $atts['class'] = $args->link_class;
@@ -362,10 +383,13 @@ function add_menu_link_class( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
 
-function add_menu_list_item_class($classes, $item, $args) {
-  if (property_exists($args, 'list_item_class')) {
-      $classes[] = $args->list_item_class;
-  }
-  return $classes;
+
+/**
+ * Function - Sermon Format Date...
+ */
+function format_sermon_date( $value) {
+	if( is_numeric ($value)) {
+		return date ( "Y-m-d H:i:s", $value );
+	}
+	return $value;
 }
-add_filter('nav_menu_css_class', 'add_menu_list_item_class', 1, 3);

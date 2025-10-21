@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 
-<section class="py-10 md:py-30 bg-secondary">
+<section class="py-10 md:py-30 bg-secondary" id="about-vision">
 <div class="container">
   <div class="text-center">
         <h2 class="section-title text-white after:bg-white"><?php the_field('vision_title'); ?></h2>

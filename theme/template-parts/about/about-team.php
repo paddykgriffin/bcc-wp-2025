@@ -9,13 +9,13 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<section class="py-10 md:py-20 bg-secondary">
+<section class="py-10 md:py-20 bg-secondary" id="about-team">
 
 <div class="container">
  <div class="grid grid-cols-12 gap-12 items-center pt-10">
             <div class="col-span-6">
                   <h2 class="section-title text-white after:bg-white after:left-0 after:-translate-x-0 "><?php the_field('team_title'); ?></h2>
-  <div class="[&_p]:pb-8 [&_p]:text-white [&_p]:text-xl">
+  <div class="[&_p]:pb-8 [&_p]:text-white [&_p]:text-xl [&_p]:leading-8">
      <?php the_field('team_content'); ?>
   </div>
 
