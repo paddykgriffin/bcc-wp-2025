@@ -10,9 +10,9 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('bg-red-100 py-20'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('py-20'); ?>>
 
-	<header class="entry-header">
+	<header class="entry-header hidden">
 		<?php
 		if (! is_front_page()) {
 			the_title('<h1 class="entry-title">', '</h1>');

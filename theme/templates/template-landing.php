@@ -15,7 +15,7 @@ get_header();
 
 <?php get_template_part( 'template-parts/hero/hero', 'inner-page' ); ?>
 <section class="py-10 md:py-20">
-    <div class="container !max-w-3xl pb-20">
+    <div class="container max-w-4xl pb-20">
         <?php
         /* Start the Loop */
         while (have_posts()):
@@ -32,7 +32,7 @@ get_header();
         endwhile; // End of the loop.
         ?>
     </div>
-    <div class="container">
+    <div class="container max-w-6xl">
         <?php get_template_part( 'template-parts/custom/custom', 'grid-boxes' ); ?>
         <?php get_template_part( 'template-parts/custom/custom', 'staff' ); ?>
        

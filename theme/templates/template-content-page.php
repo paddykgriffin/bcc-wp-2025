@@ -21,7 +21,7 @@ get_header();
 <section class="py-10 md:py-10">
 
 
-<div class="container !max-w-3xl">
+<div class="container max-w-3xl">
      <?php
     /* Start the Loop */
     while (have_posts()):

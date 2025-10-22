@@ -19,7 +19,8 @@ get_header();
 <!-- #hero -->
 
 
-<section id="front-page" class="hidden">
+<section id="home-page-content" class="hidden">
+    <div class="container">
     <?php
     /* Start the Loop */
     while (have_posts()):
@@ -35,11 +36,12 @@ get_header();
 
     endwhile; // End of the loop.
     ?>
+    </div>
 
 </section>
 <!-- #front-page -->
 
-<?php get_template_part('template-parts/home/home', 'latest-sermon'); ?>
+<?php get_template_part('template-parts/home/home', 'latest-sermon');  ?>
 <!-- #latest sermon -->
 
 <?php get_template_part('template-parts/home/home', 'what-we-do'); ?>

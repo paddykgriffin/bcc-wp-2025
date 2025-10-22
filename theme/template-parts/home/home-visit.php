@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="container p-0 py-20 !max-w-full">
+    <div class="container p-0 py-20 max-w-full">
          
     <div class="relative">
           <?php

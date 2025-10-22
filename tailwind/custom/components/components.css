@@ -55,9 +55,20 @@
 	@apply float-right ml-8;
 }
 
+.entry-title {
+	@apply font-semibold;
+}
+
+.section-title {
+	@apply after:bg-primary relative mb-4 pb-8 font-serif text-5xl font-normal after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60px] after:-translate-x-1/2 after:content-[''];
+}
+
+.hero .sermon-title {
+	@apply text-5xl font-semibold text-white text-shadow-md;
+}
+
 .container {
-	@apply !max-w-wide mx-auto px-4;
-	/* max-width: var(--container-content); */
+	@apply mx-auto max-w-(--container-content) px-4;
 }
 
 /**
@@ -87,48 +98,28 @@
 	}
 }
 
-.section-title {
-	@apply after:bg-primary relative mb-4 pb-8 font-serif text-5xl font-normal after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60px] after:-translate-x-1/2 after:content-[''];
-}
-
-/* Mailchimp form styles */
-.mc4wp-form-fields {
-	@apply mt-4;
-}
-
-.mc4wp-form-fields input[type="email"] {
-	@apply border-secondary w-full border bg-white p-3 px-3;
-}
-
-.mc4wp-form-fields input[type="submit"] {
-	@apply text-lg;
+/* Sermon Overwrites */
+.hero .sermon-title-holder {
+	@apply mb-4 !bg-transparent;
 }
 
 /* Navbar styles for subpage template */
-.page-template .navbar {
+.page-template .navbar,
+.page-template-default .navbar,
+.post-type-archive-sermons .navbar,
+.sermons-template-default .navbar {
 	@apply justify-between bg-[#1d1f10e6] py-5;
 }
-.page-template .navbar .logo {
-	@apply block;
-}
-
-.page-template-default .navbar {
-	@apply justify-between bg-[#1d1f10e6] py-5;
-}
-.page-template-default .navbar .logo {
-	@apply block;
-}
-
-.post-type-archive-sermons .navbar {
-	@apply justify-between bg-[#1d1f10e6] py-5;
-}
+.page-template .navbar .logo,
+.sermons-template-default .navbar .logo,
+.page-template-default .navbar .logo,
 .post-type-archive-sermons .navbar .logo {
 	@apply block;
 }
 
 /* Prose overrides */
 .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-	@apply !text-primary !mb-6 !text-5xl;
+	@apply !text-primary !mb-6 !text-5xl !font-normal;
 }
 
 .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -139,9 +130,14 @@
 	@apply !text-tertiary !text-3xl;
 }
 
+.prose-a\:text-primary
+	:is(:where(a):not(:where([class~="not-prose"], [class~="not-prose"] *))) {
+	@apply !text-secondary hover:!text-primary !transition-all !duration-300 hover:!no-underline;
+}
+
 /* Contact Form */
 .wp-block-contact-form-7-contact-form-selector {
-	@apply bg-secondary mx-auto max-w-2xl px-20 py-10 text-center text-white;
+	@apply bg-secondary mx-auto mt-20 max-w-2xl px-20 py-10 text-center text-white;
 }
 
 .wp-block-contact-form-7-contact-form-selector .section-title p {
@@ -184,6 +180,19 @@
 	@apply mt-2 bg-red-500 text-white;
 }
 
+/* Mailchimp form styles */
+.mc4wp-form-fields {
+	@apply mt-4;
+}
+
+.mc4wp-form-fields input[type="email"] {
+	@apply border-secondary w-full border bg-white p-3 px-3;
+}
+
+.mc4wp-form-fields input[type="submit"] {
+	@apply text-lg;
+}
+
 /* Location template styles */
 .location-content.active {
 	@apply block;
@@ -203,4 +212,117 @@
 
 .wp-block-file a.wp-block-file__button {
 	@apply !bg-tertiary hover:bg-primary px-8 py-4 text-center font-serif text-2xl tracking-wide text-white no-underline;
+}
+
+audio {
+	@apply w-full;
+}
+
+/* Latest Sermon - Home page */
+
+.latest-sermon-home .sermon-archive-single {
+	@apply grid grid-cols-2 items-center rounded-none border-0 bg-gray-100 !pb-0 md:w-full;
+}
+
+.latest-sermon-home .sermon-master-content {
+	@apply hidden;
+}
+
+.latest-sermon-home .sermon-archive-single .sermon-thumbnail img {
+	@apply rounded-none;
+}
+
+.latest-sermon-home .sermon-title {
+	@apply text-center;
+}
+
+.latest-sermon-home .sermon-title h2 {
+	@apply !mt-0 text-center text-stone-800;
+}
+
+.latest-sermon-home .sermon-title h2 a {
+	@apply hover:text-secondary text-center text-2xl text-stone-800 transition-all duration-300;
+}
+
+.latest-sermon-home .sermon-archive-details {
+	@apply flex flex-col justify-center;
+}
+
+.latest-sermon-home .sermon-archive-details .sermon-topic,
+.latest-sermon-home .sermon-archive-details .sermon-book {
+	@apply !hidden;
+}
+
+.latest-sermon-home .sermon-archive-details div {
+	@apply block text-center !text-xl;
+}
+
+.latest-sermon-home .sermon-media {
+	@apply !mb-0 flex justify-center !border-0;
+}
+
+.latest-sermon-home .asp-passage-text {
+	@apply mx-auto flex w-full justify-center text-center;
+}
+
+/* Archive */
+.sermon-archive-single {
+	@apply !opacity-100;
+}
+.sermon-archive-single .sermon-media p,
+.sermon-archive-single .sermon-archive-details p,
+.sermon-archive-single .sermon-master-content p {
+	@apply !text-base;
+}
+
+.sermon-archive-single .sermon-master-content {
+	@apply hidden;
+}
+.sermon-archive-single .asp-passage-text {
+	@apply flex items-center;
+}
+.sermon-archive-single .asp-scripture-icon {
+	@apply top-0 block;
+}
+.sermon-archive-single .asp-scripture-pass {
+	@apply block text-base;
+}
+
+/* Sermon Links */
+.sermon-media a,
+.sermon-archive-details a {
+	@apply text-secondary;
+}
+
+/* Sermon Single */
+
+.sermon-wrapper .sermon-info .sermon-header-details > div {
+	@apply !text-base;
+}
+.sermon-wrapper .sermon-header-details a {
+	@apply text-secondary text-base;
+}
+.sermon-main-content.sermon-has-content {
+	@apply mx-auto max-w-2/3 text-center lg:pt-10;
+}
+
+/* Scripture */
+.single-sermons .asp-bible-passage-holder a {
+	@apply border-secondary hover:bg-secondary text-secondary rounded-none border-2 font-serif text-lg transition-all duration-300 hover:text-white hover:no-underline;
+}
+
+/* Speaker */
+.sermon-details .details-sermon-speaker p a {
+	@apply text-xl font-medium text-stone-800;
+}
+.speaker-image {
+	@apply h-[100px] w-[100px];
+}
+.speaker-image img {
+	@apply !h-[100px] !w-[100px] border-1 border-stone-400;
+}
+
+/* Download */
+.sermon-details .sermon-mp4-file a {
+	@apply bg-primary hover:bg-secondary border-primary hover:border-secondary text-white transition-all duration-300 hover:text-white hover:no-underline;
 }

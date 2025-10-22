@@ -11,7 +11,7 @@
 
 <section class="bg-secondary py-10 lg:py-20" id="what-we-do">
 
-    <div class="container !max-w-[96rem]">
+    <div class="container">
         <h2 class="section-title text-center text-white after:bg-white">What we do</h2>
 
         <?php if (have_rows('grid_boxes', 'option')): ?>

@@ -330,6 +330,12 @@ add_image_size('landscape-lg', 1280, 800, true);
 
 
 /**
+ * Function - Hero Inner Size
+ */
+add_image_size('banner-xl', 1680, 375, true);
+
+
+/**
  * Function - Desktop Hero Images
  */
 add_image_size('desktop-lg-hero', 1440, 900, true);
@@ -383,13 +389,3 @@ function add_menu_link_class( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
 
-
-/**
- * Function - Sermon Format Date...
- */
-function format_sermon_date( $value) {
-	if( is_numeric ($value)) {
-		return date ( "Y-m-d H:i:s", $value );
-	}
-	return $value;
-}
