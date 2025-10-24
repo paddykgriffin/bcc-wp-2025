@@ -10,8 +10,19 @@
 get_header();
 ?>
 
-	<section id="primary">
-		<main id="main">
+<section class="hero grid hero-inner-page bg-primary h-[40vh] [&_img]:w-full overflow-hidden" >
+    <div class="col-start-1 row-start-1 z-10 flex items-center">
+        <div class="container text-center">
+            <h1 class="entry-title lg:pt-15 mb-0 text-5xl text-white text-shadow-md">Page Not Found</h1>
+        </div>
+    </div>
+    <div class="col-start-1 row-start-1">
+    <?php /* echo bcc_post_thumbnail($post->ID, 'hero-image'); */ ?>
+    </div>
+</section>
+
+	<section class="py-10 md:py-10">
+		<div class="container !max-w-3xl">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -19,7 +30,7 @@ get_header();
 				<?php
 				printf(
 					/* translators: 1: search result title. 2: search term. */
-					'<h1 class="page-title">%1$s <span>%2$s</span></h1>',
+					'<h1 class="page-title max-w-full font-medium">%1$s <span>%2$s</span></h1>',
 					esc_html__( 'Search results for:', 'bcc' ),
 					get_search_query()
 				);
@@ -45,7 +56,7 @@ get_header();
 
 		endif;
 		?>
-		</main><!-- #main -->
+		</div>
 	</section><!-- #primary -->
 
 <?php

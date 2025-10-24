@@ -107,13 +107,21 @@
 .page-template .navbar,
 .page-template-default .navbar,
 .post-type-archive-sermons .navbar,
-.sermons-template-default .navbar {
+.sermons-template-default .navbar,
+.error404 .navbar,
+.search .navbar,
+.blog .navbar,
+.single .navbar {
 	@apply justify-between bg-[#1d1f10e6] py-5;
 }
 .page-template .navbar .logo,
 .sermons-template-default .navbar .logo,
 .page-template-default .navbar .logo,
-.post-type-archive-sermons .navbar .logo {
+.post-type-archive-sermons .navbar .logo,
+.error404 .navbar .logo,
+.search .navbar .logo,
+.blog .navbar .logo,
+.single .navbar .logo {
 	@apply block;
 }
 
@@ -130,8 +138,12 @@
 	@apply !text-tertiary !text-3xl;
 }
 
-.prose-a\:text-primary
+/* .prose-a\:text-primary
 	:is(:where(a):not(:where([class~="not-prose"], [class~="not-prose"] *))) {
+	@apply !text-secondary hover:!text-primary !transition-all !duration-300 hover:!no-underline;
+} */
+
+.prose a {
 	@apply !text-secondary hover:!text-primary !transition-all !duration-300 hover:!no-underline;
 }
 
@@ -194,6 +206,7 @@
 }
 
 /* Location template styles */
+
 .location-content.active {
 	@apply block;
 }
@@ -203,16 +216,19 @@
 }
 
 /* PDF Embed styles */
+
 .wp-block-file {
 	@apply my-12;
 }
 .wp-block-file a {
-	@apply font-serif text-lg no-underline;
+	@apply font-serif text-lg !text-black no-underline;
 }
 
 .wp-block-file a.wp-block-file__button {
-	@apply !bg-tertiary hover:bg-primary px-8 py-4 text-center font-serif text-2xl tracking-wide text-white no-underline;
+	@apply !bg-tertiary hover:bg-primary px-8 py-4 text-center font-serif text-2xl tracking-wide !text-white no-underline;
 }
+
+/* Audio Player */
 
 audio {
 	@apply w-full;
@@ -275,9 +291,9 @@ audio {
 	@apply !text-base;
 }
 
-.sermon-archive-single .sermon-master-content {
+/* .sermon-archive-single .sermon-master-content {
 	@apply hidden;
-}
+} */
 .sermon-archive-single .asp-passage-text {
 	@apply flex items-center;
 }
@@ -325,4 +341,174 @@ audio {
 /* Download */
 .sermon-details .sermon-mp4-file a {
 	@apply bg-primary hover:bg-secondary border-primary hover:border-secondary text-white transition-all duration-300 hover:text-white hover:no-underline;
+}
+
+/* Sitemap */
+.wsp-pages-title {
+	@apply !m-0 pb-10;
+}
+
+/* Post - Wrapper on index.php */
+.post-wrapper {
+	@apply flex flex-col items-center rounded-tl-2xl rounded-tr-2xl border border-gray-300 2xl:flex-row;
+}
+
+.posts-content .post-wrapper {
+	@apply md:rounded-tr-2xl md:rounded-bl-none 2xl:rounded-tr-none 2xl:rounded-bl-2xl;
+}
+
+/* Search Box */
+.search-form {
+	@apply mb-16 flex items-center justify-between rounded-full border-1 border-solid border-gray-400 bg-transparent px-6 text-black md:mb-24;
+}
+.search-form input {
+	@apply rounded-full border-0 bg-transparent py-3 text-black outline-none;
+}
+.search-form button {
+	@apply block h-[24px];
+}
+
+/* Posts - Search Form */
+.posts-content .search-form {
+	@apply md:hidden;
+}
+.posts-sidebar .search-form {
+	@apply hidden md:flex;
+}
+.posts-content .post-wrapper .entry-content {
+	@apply 2xl:py-0;
+}
+
+/* Post - Header */
+.post-title {
+	@apply text-secondary dark:text-primary hover:text-primary dark:hover:text-tertiary text-2xl font-semibold md:leading-8;
+}
+
+/* Post - Meta */
+.entry-meta {
+	@apply flex justify-between gap-2 md:flex-col lg:flex-row;
+}
+.entry-meta .date {
+	@apply hidden;
+}
+.entry-meta .category-link,
+.entry-meta .tag-link,
+.entry-meta .author-link {
+	@apply flex items-center text-[10px] font-bold uppercase;
+}
+
+/* Post - Footer */
+.entry-footer {
+	@apply flex justify-between md:flex-col md:gap-4 lg:flex-row lg:items-center lg:justify-between;
+}
+.entry-footer .date,
+.entry-footer .author,
+.entry-footer .category,
+.entry-footer .tag,
+.entry-footer .comment-count-wrapper {
+	@apply hidden;
+}
+
+.posts-wrapper article {
+	@apply md:grid md:grid-cols-2;
+}
+
+/* Posts - Sidebar */
+
+.posts-sidebar h2 {
+	@apply text-primary dark:text-primary mb-4 pb-2 text-2xl font-semibold;
+}
+
+.posts-sidebar li {
+	@apply flex py-2;
+}
+
+.posts-sidebar li a {
+	@apply flex transition-all duration-300 hover:pl-3 hover:text-(--no1-red) dark:hover:text-(--no1-yellow);
+}
+
+.posts-sidebar .wp-block-categories-list a {
+	@apply transition-all duration-300 before:mr-2 before:block before:h-[24px] before:w-[12px] before:font-semibold before:text-(--no1-red) before:content-['>'] dark:before:text-(--no1-yellow);
+}
+
+/* Posts Pagination Nav Links */
+.nav-links {
+	@apply mt-10 flex items-center gap-3;
+}
+
+.nav-links .page-numbers {
+	@apply w-[50px] rounded-full py-3 text-center hover:bg-gray-200;
+}
+
+.nav-links .page-numbers.current {
+	@apply bg-primary hover:bg-secondary text-white;
+}
+
+.nav-links .page-numbers.next {
+	@apply hover:text-secondary h-auto w-auto hover:bg-transparent;
+}
+
+.nav-links .page-numbers.prev {
+	@apply hover:text-secondary h-auto w-auto hover:bg-transparent;
+}
+
+/* Sidebar */
+.posts-sidebar .widget_block {
+	@apply rounded-xl bg-gray-200/50 px-6 py-4 pb-8;
+}
+
+.category-link,
+.read-more-link,
+.author-link {
+	@apply hover:text-secondary flex items-center;
+}
+
+#comments {
+	@apply hidden;
+}
+
+.single .entry-meta {
+	@apply mb-10 bg-gray-100 p-4;
+}
+
+/* Single Post */
+
+.single-post h1 {
+	@apply !text-center after:!left-[50%] after:!translate-x-[-50%] md:after:!translate-x-[-50%];
+}
+.single-post .navigation {
+	@apply mt-5;
+}
+.single-post .nav-links {
+	@apply flex items-center justify-between;
+}
+.single-post .nav-previous {
+	@apply hover:bg-secondary rounded-full bg-gray-200 px-8 py-2 hover:text-white;
+}
+.single-post .nav-next {
+	@apply bg-primary hover:bg-secondary rounded-full px-8 py-2 text-white;
+}
+.single-post .nav-previous span {
+	@apply first:font-semibold last:hidden;
+}
+.single-post .nav-next span {
+	@apply first:font-semibold last:hidden;
+}
+.single-post .publish-author {
+	@apply hidden;
+}
+.single-post .publish-link {
+	@apply hidden;
+}
+.single-post .entry-footer {
+	@apply hidden;
+}
+.single-post .publish-date {
+	@apply border-r-2 border-gray-400 px-4;
+}
+.single-post .publish-category {
+	@apply px-4;
+}
+.single-post .category {
+	@apply flex gap-2;
 }

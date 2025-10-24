@@ -18,7 +18,7 @@ get_header();
 
 
 
-<section class="py-10 md:py-20">
+<section class="py-10 md:py-2 bg-gray-200">
 
 
 <div class="container">

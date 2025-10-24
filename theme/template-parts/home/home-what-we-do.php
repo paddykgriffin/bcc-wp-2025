@@ -17,7 +17,7 @@
         <?php if (have_rows('grid_boxes', 'option')): ?>
 
 
-            <div class='grid md:grid-cols-12 gap-8 py-10 md:py-20'>
+            <div class='grid md:grid-cols-12 gap-6 py-10 md:py-20'>
 
 
                 <?php while (have_rows('grid_boxes', 'option')): the_row();

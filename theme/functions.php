@@ -39,7 +39,7 @@ if (! defined('BCC_TYPOGRAPHY_CLASSES')) {
 	 */
 	define(
 		'BCC_TYPOGRAPHY_CLASSES',
-		'prose prose-neutral max-w-none prose-a:text-primary'
+		'prose prose-neutral max-w-none '
 	);
 }
 
@@ -147,6 +147,18 @@ function bcc_widgets_init()
 	);
 
 	register_sidebar(
+		array(
+			'name' => __('News Sidebar', '_bless'),
+			'id' => 'news-sidebar',
+			'description' => __('Add widgets here on the latest news page.', '_bless'),
+			'before_widget' => '<div id="%1$s" class="widget %2$s mb-8">',
+			'after_widget' => '</div>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>',
+		)
+	);
+
+	register_sidebar(
 			array(
 				'name'          => __('Mailchimp Full', 'bcc'),
 				'id'            => 'mailchimp',
@@ -248,6 +260,26 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+function wpse_remove_edit_post_link($link)
+{
+	return '';
+}
+add_filter('edit_post_link', 'wpse_remove_edit_post_link');
+
+
+// 
+
+/**
+ * Excerpt length
+ */
+function custom_excerpt_length($length)
+{
+	return 20; // Set to 30 words
+}
+add_filter('excerpt_length', 'custom_excerpt_length', 999);
 
 /**
  * Support SVG uploads.
@@ -389,3 +421,18 @@ function add_menu_link_class( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
 
+function custom_search_form($form)
+{
+	$form = '
+    <form role="search" method="get" class="search-form" action="' . esc_url(home_url('/')) . '">
+        <label class="sr-only">
+           Search
+        </label>
+		 <input type="search" class="search-field" placeholder="' . esc_attr__('Search', '_bless') . '" value="' . get_search_query() . '" name="s" />
+        <button type="submit" class="search-submit">
+            <span class="material-symbols-outlined text-primary">search</span>
+        </button>
+    </form>';
+	return $form;
+}
+add_filter('get_search_form', 'custom_search_form');

@@ -23,7 +23,7 @@
 		else :
 		?>
 		<a href="<?php echo esc_url(home_url('/')); ?>" className="group">
-			<img src="<?php bloginfo('template_directory'); ?>/img/logo-white.svg" alt="<?php bloginfo('name'); ?>" class="w-[250px] hover:opacity-50 default-transition" />
+			<img src="<?php bloginfo('template_directory'); ?>/img/logo-white.svg" alt="<?php bloginfo('name'); ?>" class="w-[200px] hover:opacity-50 default-transition" />
 			</a>
 		<?php
 		endif;

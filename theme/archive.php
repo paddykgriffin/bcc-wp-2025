@@ -11,7 +11,7 @@ get_header();
 ?>
 
 	<section id="primary">
-		<main id="main">
+			<main id="main" class="bg-red-500">
 
 		<?php if ( have_posts() ) : ?>
 

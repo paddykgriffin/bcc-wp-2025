@@ -9,10 +9,10 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('single-post'); ?>>
 
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<header class="entry-header max-w-full hidden">
+		<?php the_title( '<h1 class="entry-title font-serif text-3xl font-medium max-w-full">', '</h1>' ); ?>
 
 		<?php if ( ! is_page() ) : ?>
 			<div class="entry-meta">
@@ -21,9 +21,9 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php bcc_post_thumbnail(); ?>
+	<?php bcc_post_thumbnail();  ?>
 
-	<div <?php bcc_content_class( 'entry-content' ); ?>>
+	<div <?php bcc_content_class( 'pt-10 entry-content' ); ?>>
 		<?php
 		the_content(
 			sprintf(
@@ -49,7 +49,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer hidden">
 		<?php bcc_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
