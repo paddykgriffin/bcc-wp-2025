@@ -60,11 +60,11 @@
 }
 
 .section-title {
-	@apply after:bg-primary relative mb-4 pb-8 font-serif text-5xl font-normal after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60px] after:-translate-x-1/2 after:content-[''];
+	@apply after:bg-primary relative mb-4 pb-8 font-serif text-4xl font-normal after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60px] after:-translate-x-1/2 after:content-[''] md:text-5xl;
 }
 
 .hero .sermon-title {
-	@apply text-5xl font-semibold text-white text-shadow-md;
+	@apply mb-0 pt-20 text-3xl font-semibold text-white text-shadow-md md:pt-15 lg:text-4xl xl:lg:text-5xl;
 }
 
 .container {
@@ -87,7 +87,7 @@
 }
 
 .nav-primary-link {
-	@apply hover:text-tertiary before:bg-tertiary aria-[current=page]:text-tertiary relative block border-b border-white/70 px-6 py-4 font-medium text-white transition-colors duration-300 ease-in-out before:absolute before:bottom-0 before:left-0 before:block before:h-[1px] before:w-0 before:transition-[width] before:duration-300 before:ease-in-out hover:before:w-full aria-[current=page]:before:w-full md:border-0 lg:px-0 lg:py-0;
+	@apply hover:text-tertiary before:bg-tertiary aria-[current=page]:text-tertiary relative block px-6 py-4 font-medium text-white transition-colors duration-300 ease-in-out before:absolute before:bottom-0 before:left-0 before:block before:h-[1px] before:w-0 before:transition-[width] before:duration-300 before:ease-in-out hover:before:w-full aria-[current=page]:before:w-full md:border-0 lg:px-0 lg:py-0;
 }
 
 .scrolled {
@@ -125,6 +125,21 @@
 	@apply block;
 }
 
+.home.page-template-default .navbar {
+	@apply justify-end bg-black/20;
+}
+.home.page-template-default .navbar .logo {
+	@apply hidden;
+}
+
+.home.page-template-default .navbar.scrolled {
+	@apply justify-end bg-[#1d1f10e6];
+}
+
+.home.page-template-default .navbar.scrolled .logo {
+	@apply block;
+}
+
 /* Prose overrides */
 .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
 	@apply !text-primary !mb-6 !text-5xl !font-normal;
@@ -149,11 +164,13 @@
 
 /* Contact Form */
 .wp-block-contact-form-7-contact-form-selector {
-	@apply bg-secondary mx-auto mt-20 max-w-2xl px-20 py-10 text-center text-white;
+	@apply mx-auto mt-20 max-w-2xl bg-gray-200 px-6 py-6 text-center md:px-20 md:py-10;
 }
-
+.wp-block-contact-form-7-contact-form-selector .section-title {
+	@apply after:bg-primary text-primary;
+}
 .wp-block-contact-form-7-contact-form-selector .section-title p {
-	@apply mb-0;
+	@apply mt-10 mb-0;
 }
 
 .wp-block-contact-form-7-contact-form-selector .form-subtitle {
@@ -169,23 +186,23 @@
 }
 
 .wp-block-contact-form-7-contact-form-selector input[type="text"] {
-	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white placeholder:text-white;
+	@apply w-full border border-gray-400 bg-gray-300 p-3 px-3 text-white placeholder:text-gray-800;
 }
 
 .wp-block-contact-form-7-contact-form-selector input[type="email"] {
-	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white placeholder:text-white;
+	@apply w-full border border-gray-400 bg-gray-300 p-3 px-3 text-gray-800 placeholder:text-gray-800;
 }
 
 .wp-block-contact-form-7-contact-form-selector select {
-	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white;
+	@apply w-full border border-gray-400 bg-gray-300 p-3 px-3 text-gray-800;
 }
 
 .wp-block-contact-form-7-contact-form-selector textarea {
-	@apply bg-tertiary border-tertiary w-full border p-3 px-3 text-white placeholder:text-white;
+	@apply w-full border border-gray-400 bg-gray-300 p-3 px-3 text-gray-800 placeholder:text-gray-800;
 }
 
 .wp-block-contact-form-7-contact-form-selector input[type="submit"] {
-	@apply bg-tertiary hover:bg-primary px-12 py-3 text-center font-serif text-2xl tracking-wide text-white no-underline hover:cursor-default;
+	@apply hover:bg-primary bg-tertiary w-full px-12 py-3 text-center font-serif text-2xl tracking-wide text-white no-underline hover:cursor-default md:ml-20 md:w-1/2;
 }
 
 .wpcf7-not-valid-tip {
@@ -237,7 +254,7 @@ audio {
 /* Latest Sermon - Home page */
 
 .latest-sermon-home .sermon-archive-single {
-	@apply grid grid-cols-2 items-center rounded-none border-0 bg-gray-100 !pb-0 md:w-full;
+	@apply grid items-center rounded-none border-0 bg-gray-100 !pb-0 md:w-full md:grid-cols-2;
 }
 
 .latest-sermon-home .sermon-master-content {
@@ -281,6 +298,19 @@ audio {
 	@apply mx-auto flex w-full justify-center text-center;
 }
 
+.latest-sermon-home .asp-passage-text a {
+	@apply flex;
+}
+
+.latest-sermon-home .sermon-archive-bible-passage {
+	@apply pb-3 md:pb-0;
+}
+
+.sermon-archive-single .sermon-archive-bible-passage p,
+.sermon-archive-single .sermon-archive-bible-passage a {
+	@apply !flex;
+}
+
 /* Archive */
 .sermon-archive-single {
 	@apply !opacity-100;
@@ -290,10 +320,6 @@ audio {
 .sermon-archive-single .sermon-master-content p {
 	@apply !text-base;
 }
-
-/* .sermon-archive-single .sermon-master-content {
-	@apply hidden;
-} */
 .sermon-archive-single .asp-passage-text {
 	@apply flex items-center;
 }
@@ -332,10 +358,14 @@ audio {
 	@apply text-xl font-medium text-stone-800;
 }
 .speaker-image {
-	@apply h-[100px] w-[100px];
+	@apply mb-6 h-[150px] w-[150px] rounded-full;
 }
 .speaker-image img {
-	@apply !h-[100px] !w-[100px] border-1 border-stone-400;
+	@apply !h-[150px] !w-[150px] rounded-full border-1 border-stone-400;
+}
+.details-sermon-speaker p,
+.sermon-details .details-sermon-speaker p a {
+	@apply !text-2xl;
 }
 
 /* Download */
@@ -472,7 +502,6 @@ audio {
 }
 
 /* Single Post */
-
 .single-post h1 {
 	@apply !text-center after:!left-[50%] after:!translate-x-[-50%] md:after:!translate-x-[-50%];
 }
@@ -511,4 +540,123 @@ audio {
 }
 .single-post .category {
 	@apply flex gap-2;
+}
+
+.asp-archive-filter input[type="submit"],
+.asp-load-more-button,
+.asp-series-shortcode-load-more,
+.asp-load-more-button:link,
+.asp-load-more-button:visited {
+	@apply !bg-secondary border-secondary hover:!bg-primary !h-auto !py-3 font-serif text-2xl transition-all duration-300;
+}
+
+/* Mobile Menu */
+#mobile-menu li {
+	@apply relative;
+}
+.nav-mobile-link {
+	@apply hover:text-tertiary block w-full border-b border-stone-800 px-4 py-3 text-stone-800;
+}
+.nav-mobile-link[aria-current="page"] {
+	@apply text-primary border-l-primary border-l-5 font-semibold;
+}
+
+.menu-item-has-children .sub-menu {
+	@apply hidden;
+}
+.menu-item-has-children .sub-menu.open {
+	@apply block;
+}
+
+.submenu-toggle {
+	@apply absolute top-2 right-2;
+}
+
+.menu-item-has-children .sub-menu li a {
+	@apply border-none pl-6;
+}
+
+.sermon-details {
+	@apply !grid grid-cols-1 items-center md:grid-cols-2;
+}
+
+.sermon-details .sermon-media-holder {
+	@apply mb-0 hidden md:block;
+}
+
+.sermon-details .sermon-mp4-file a span {
+	@apply block;
+}
+
+.sermon-wrapper .sermon-speaker-holder {
+	@apply mb-0;
+}
+
+.single-sermons .asp-bible-passage-holder .asp-bible-passage-text {
+	@apply flex flex-col md:flex-row md:items-center md:justify-center;
+}
+
+.single-sermons
+	.asp-bible-passage-holder
+	.asp-bible-passage-text
+	.asp-bible-span {
+	@apply pb-3 text-xl md:pb-0;
+}
+
+.sermon-wrapper .sermon-info .sermon-title h2 {
+	@apply !leading-7;
+}
+
+.sermon-wrapper .asp-column-inner {
+	@apply pt-10 pb-2;
+}
+
+.sermon-wrapper .sermon-speaker-holder,
+.sermon-wrapper .sermon-media-holder {
+	@apply block text-center;
+}
+
+.sermon-details .sermon-media-holder > div {
+	@apply float-none grid justify-center;
+}
+
+.sermon-details .sermon-mp4-file a {
+	@apply mx-auto flex items-center !px-6 !py-3;
+}
+
+.sermon-details .sermon-mp4-file a span {
+	@apply !text-xl;
+}
+
+.sermon-details .sermon-mp4-file a .far {
+	@apply !text-xl;
+}
+
+/* .asp-archive-container {
+	@apply pt-[125px] md:pt-[150px];
+} */
+
+.sermon-wrapper {
+	@apply bg-red-500 pt-[90px];
+}
+.sermon-wrapper .sermon-title-holder {
+	@apply !bg-primary;
+}
+.sermon-featured-image {
+	@apply after:!bg-primary after:!opacity-100;
+}
+
+.sermon-wrapper .sermon-featured-image {
+	@apply !pb-0 after:!hidden;
+}
+.sermon-wrapper .sermon-title-holder .sermon-title h1 {
+	@apply !text-4xl;
+}
+
+.single-sermons .asp-bible-passage-holder {
+	@apply !pb-12;
+}
+
+.sermon-audio-player-wrapper {
+	@apply !hidden;
 }

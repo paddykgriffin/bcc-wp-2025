@@ -43,14 +43,14 @@
 			array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
-				'menu_class' => ' gap-12 lg:gap-8 xl:gap-12 hidden md:flex',
+				'menu_class' => ' gap-12 lg:gap-8 xl:gap-12 hidden xl:flex',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="submenu">%3$s</ul>',
 			)
 		);
 		?>
 	</nav><!-- #site-navigation -->
 
-	<button id="menuBtn" class="mt-3 lg:hidden text-white " aria-controls="primary-menu"
+	<button id="menuBtn" class="mt-3 xl:hidden text-white " aria-controls="primary-menu"
     aria-expanded="false">
     <span class="material-symbols-outlined !block !text-[40px]">menu</span>
     <p class="sr-only"> <?php esc_html_e('Primary Menu', '_bless'); ?>

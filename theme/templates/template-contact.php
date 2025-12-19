@@ -21,7 +21,7 @@ get_header();
 <section class="py-10 md:py-20">
 
 
-<div class="container !max-w-3xl">
+<div class="container max-w-3xl">
     <?php
     /* Start the Loop */
     while (have_posts()):
@@ -42,7 +42,7 @@ get_header();
 
 </div>
 
-<div class="container">
+<div class="container md:px-20 lg:px-10">
     <?php get_template_part( 'template-parts/custom/custom', 'location' ); ?>
 </div>
 </section>

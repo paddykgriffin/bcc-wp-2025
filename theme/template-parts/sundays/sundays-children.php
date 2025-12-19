@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 <section class="py-10 md:py-30 bg-secondary">
 
-<div class="container">
+<div class="container md:px-20 lg:px-10">
     <div class="text-center">
         <h2 class="section-title text-white after:bg-white"><?php the_field('sundays_children_title'); ?></h2>
     </div>
@@ -31,14 +31,14 @@ defined( 'ABSPATH' ) || exit;
 
                 ?>
 
-                    <div class="border-b-[1px] border-white/70 last:border-0  gap-8 flex items-center first:flex-row last:flex-row-reverse first:justify-between last:justify-between last:[&_.text-container]:text-left py-15 " >
+                    <div class="border-b-[1px] border-white/70 last:border-0  gap-8 flex flex-col lg:flex-row items-center lg:first:flex-row lg:last:flex-row-reverse lg:first:justify-between lg:last:justify-between lg:last:[&_.text-container]:text-left py-15 " >
 
                 
-                        <div class="col-span-6 w-1/2 image-container">
+                        <div class="col-span-6 lg:w-1/2 image-container">
                               <img src='<?php echo $image['sizes']['landscape-md']; ?>' class='' />
                         </div>
 
-                         <div class="col-span-6 w-1/2 text-container">
+                         <div class="col-span-6 lg:w-1/2 text-container">
                                <h4 class="text-white"><?php echo $title; ?></h4>
                                 <div class="[&_p]:text-xl [&_p]:text-white [&_p]:leading-8 [&_p]:mb-4">
                                     <?php echo $text; ?>

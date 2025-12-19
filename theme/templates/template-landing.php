@@ -32,12 +32,12 @@ get_header();
         endwhile; // End of the loop.
         ?>
     </div>
-    <div class="container max-w-6xl">
+    <div class="container max-w-6xl md:px-20 lg:px-10">
         <?php get_template_part( 'template-parts/custom/custom', 'grid-boxes' ); ?>
         <?php get_template_part( 'template-parts/custom/custom', 'staff' ); ?>
        
     </div>
-     <div class="container !max-w-2xl bg-secondary p-0 lg:mt-20">
+     <div class="container !max-w-2xl mt-10 md:mt-20 ">
          <?php get_template_part( 'template-parts/custom/custom', 'cta' ); ?>
     </div>
 </section>

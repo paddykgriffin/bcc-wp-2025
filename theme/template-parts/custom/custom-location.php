@@ -4,7 +4,7 @@
         <h2 class="section-title">Our Location</h2>
     </div>
 
-    <div class="grid grid-cols-12 mt-30 gap-8">
+    <div class="grid lg:grid-cols-12 mt-10 md:mt-30 gap-8">
         <div class="col-span-6">
             <h3 class="text-3xl"><?php the_field('address_title'); ?></h3>
            <?php the_field('address_details'); ?>

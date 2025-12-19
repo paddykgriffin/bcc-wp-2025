@@ -150,10 +150,6 @@ if (!function_exists('bcc_comment_count')):
 endif;
 
 
-
-
-
-
 if (!function_exists('bcc_entry_meta')):
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.

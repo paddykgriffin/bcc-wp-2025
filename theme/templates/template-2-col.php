@@ -18,12 +18,12 @@ get_header();
 
 
 
-<section class="py-10 md:py-2 bg-gray-200">
+<section class="py-10 md:py-20">
 
 
 <div class="container">
-    <div class="grid grid-cols-12 gap-16">
-        <div class="col-span-8">
+    <div class="grid md:grid-cols-12 gap-16">
+        <div class="md:col-span-8">
            <?php
     /* Start the Loop */
     while (have_posts()):
@@ -40,11 +40,12 @@ get_header();
     endwhile; // End of the loop.
     ?>
 
-<div class="max-w-2xl bg-secondary mt-10">
-    <?php get_template_part( 'template-parts/custom/custom', 'cta' ); ?>
-    </div>    
-</div>
-         <div class="col-span-4"> 
+            <div class="max-w-2xl mt-10">
+                <?php get_template_part( 'template-parts/custom/custom', 'cta' ); ?>
+            </div>    
+        </div>
+
+         <div class="md:col-span-4"> 
            <?php get_template_part('template-parts/sidebar/sidebar', 'right'); ?>
 
         </div>

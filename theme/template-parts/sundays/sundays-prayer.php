@@ -11,13 +11,13 @@ defined( 'ABSPATH' ) || exit;
 
 <section class="py-10 md:py-30 bg-gray-100">
 
-<div class="container">
+<div class="container md:px-20 lg:px-10">
 
 
 
 
 
-       <div class="grid grid-cols-12 items-center gap-8 md:pt-20">
+       <div class="grid lg:grid-cols-12 items-center gap-8 md:pt-20">
 
 
        <div class="col-span-6">

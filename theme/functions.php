@@ -16,7 +16,7 @@ if (! defined('BCC_VERSION')) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define('BCC_VERSION', '1.1.12');
+	define('BCC_VERSION', '1.1.14');
 }
 
 if (! defined('BCC_TYPOGRAPHY_CLASSES')) {
@@ -83,6 +83,7 @@ if (! function_exists('bcc_setup')) :
 		register_nav_menus(
 			array(
 				'menu-1' => __('Primary', 'bcc'),
+				'menu-2' => __('Mobile', 'bcc'),
 				'footer1' => __('Footer Menu 1', 'bcc'),
 				'footer2' => __('Footer Menu 2', 'bcc'),
 				'footer3' => __('Footer Menu 3', 'bcc'),
@@ -345,6 +346,8 @@ function add_primary_menu_link($atts, $item, $args, $depth)
 add_filter('nav_menu_link_attributes', 'add_primary_menu_link', 10, 4);
 
 
+
+
 /**
  * Function - Tile/Square Images
  */
@@ -436,3 +439,41 @@ function custom_search_form($form)
 	return $form;
 }
 add_filter('get_search_form', 'custom_search_form');
+
+
+class Walker_Nav_Menu_With_Button extends Walker_Nav_Menu {
+
+    // Start each element output
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $has_children = in_array( 'menu-item-has-children', $classes );
+
+        // Determine if this item is the current page
+        $is_current = in_array( 'current-menu-item', $classes ) || in_array( 'current_page_item', $classes ) || in_array( 'current-menu-ancestor', $classes );
+
+        // Build list item
+        $output .= '<li class="' . esc_attr( implode( ' ', $classes ) ) . '">';
+
+        // Build link attributes
+        $attributes  = ' class="nav-mobile-link"';
+        $attributes .= ' href="' . esc_url( $item->url ) . '"';
+        if ( $is_current ) {
+            $attributes .= ' aria-current="page"';
+        }
+
+        // Output link
+        $output .= '<a' . $attributes . '>' . esc_html( $item->title ) . '</a>';
+
+        // Add submenu toggle button if applicable
+        if ( $has_children ) {
+            $output .= '<button class="submenu-toggle" aria-expanded="false" aria-label="Toggle submenu">'
+                     . '<span class="material-symbols-outlined !block !text-[30px]">add</span>'
+                     . '</button>';
+        }
+    }
+
+    // End each element
+    function end_el( &$output, $item, $depth = 0, $args = array() ) {
+        $output .= '</li>';
+    }
+}

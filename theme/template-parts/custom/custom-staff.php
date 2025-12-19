@@ -12,12 +12,12 @@ if (is_page('our-team')): // page slug
                 <?php while (have_rows('elders', 'option')):
                     the_row(); ?>
                     <div class="staff-list-block">
-                        <div class="staff-content">
+                        <div class="staff-content text-center">
 
                             <?php 
                             $image = get_sub_field('photo');
                             if( !empty($image) ): ?>
-                            <img class="mx-auto w-full" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                            <img class="mx-auto w-full" src="<?php echo $image['sizes']['tile-md']; ?>" alt="<?php echo $image['alt']; ?>" />
                             <?php endif; ?>
 
                            
@@ -32,6 +32,14 @@ if (is_page('our-team')): // page slug
                                     <?php the_sub_field('job_title'); ?>
                                 </p>
                             <?php endif; ?>
+
+
+                              <a class="btn mx-auto bg-tertiary text-lg hover:bg-primary default-transition" href="<?php echo esc_url( 'mailto:' . antispambot( get_field('email') ) ); ?>">
+                    <?php /* echo esc_html( antispambot( get_field('cta_link' ) ) ); */?>
+            Contact  <?php the_sub_field('name'); ?>
+            </a>
+
+
 
                          
                         </div>
@@ -63,7 +71,7 @@ if (is_page('our-team')): // page slug
                            <?php 
                             $image = get_sub_field('photo');
                             if( !empty($image) ): ?>
-                            <img class="mx-auto w-full" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                            <img class="mx-auto w-full" src="<?php echo $image['sizes']['tile-md']; ?>" alt="<?php echo $image['alt']; ?>" />
                             <?php endif; ?>
 
 

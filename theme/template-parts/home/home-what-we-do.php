@@ -11,13 +11,13 @@
 
 <section class="bg-secondary py-10 lg:py-20" id="what-we-do">
 
-    <div class="container">
+    <div class="container xl:px-20 2xl:px-0">
         <h2 class="section-title text-center text-white after:bg-white">What we do</h2>
 
         <?php if (have_rows('grid_boxes', 'option')): ?>
 
 
-            <div class='grid md:grid-cols-12 gap-6 py-10 md:py-20'>
+            <div class='grid md:grid-cols-12 gap-6  py-10 md:py-20'>
 
 
                 <?php while (have_rows('grid_boxes', 'option')): the_row();

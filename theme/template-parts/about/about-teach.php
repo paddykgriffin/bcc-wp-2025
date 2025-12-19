@@ -11,12 +11,12 @@ defined( 'ABSPATH' ) || exit;
 
 <section class="py-10 md:py-30" id="about-teach">
 
-<div class="container">
+<div class="container md:px-20 lg:px-10">
   <div class="text-center">
         <h2 class="section-title "><?php the_field('teach_title'); ?></h2>
     </div>
 
-       <div class="grid grid-cols-12 gap-12 items-center pt-10">
+       <div class="grid lg:grid-cols-12 gap-12 items-center pt-10">
 
         <div class="col-span-6">
 
@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
                 </div>
 
 
-                 <div class="grid grid-cols-12 gap-6">
+                 <div class="grid md:grid-cols-12 gap-6">
 
                
                     <?php 

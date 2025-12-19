@@ -100,3 +100,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButtons = document.querySelectorAll('.submenu-toggle');
+
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Find the next sibling submenu
+      const submenu = button.nextElementSibling;
+
+      if (submenu && submenu.classList.contains('sub-menu')) {
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !isOpen);
+        submenu.classList.toggle('open', !isOpen);
+
+        // Optional: change the icon (add/remove)
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon) icon.textContent = isOpen ? 'add' : 'remove';
+      }
+    });
+  });
+});

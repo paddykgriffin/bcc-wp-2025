@@ -11,7 +11,7 @@
 
 
 
-<section class="grid h-[80vh] md:h-auto relative overflow-hidden md:overflow-auto" id="hero">
+<section class="grid h-[78vh] 2xl:h-auto relative overflow-hidden md:overflow-auto" id="hero">
 
     <?php
 
@@ -33,7 +33,7 @@
     <div class="col-start-1 row-start-1 flex items-center z-20">
 
         <div class="container !max-w-xl lg:pt-20">
-            <h1 class="text-center pb-3 text-white text-2xl">
+            <h1 class="text-center pb-3 text-white text-2xl text-shadow-lg">
                 <?php the_field('hero_welcome', 'option'); ?> <span class="hidden">Ballycullen Community Church</span>
 
             </h1>
@@ -78,7 +78,7 @@
                 <?php endif; ?>
             </div>
 
-             <div class="text-center lg:pt-30">
+             <div class="text-center lg:pt-20">
             <button id="scrollHeroDown" class="">
                         <span class="material-symbols-outlined !text-[60px] text-white">
                             keyboard_arrow_down

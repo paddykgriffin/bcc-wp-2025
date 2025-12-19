@@ -1,4 +1,4 @@
-<div class="grid grid-cols-12 gap-8">
+<div class="grid grid-cols-12 gap-2 md:gap-8">
      <?php  if( have_rows('grid_boxes') ): ?>
 
         <?php 
@@ -15,14 +15,14 @@
         
             ?>
 
-                <div class="col-span-4"> 
+                <div class="col-span-6 lg:col-span-4"> 
         
                     <?php if( $link ): ?>
                         <a href="<?php echo $link; ?>" class="grid group">
                     <?php endif; ?>
 
                         <div class='col-start-1 row-start-1 flex items-center z-10 justify-center'>
-                            <div class="bg-black/50 text-white text-center py-4 w-2/3 border-white border-1 text-2xl group-hover:bg-black font-serif default-transition">
+                            <div class="bg-black/50 text-white text-center py-4 w-[90%] md:w-2/3 border-white border-1 text-xl md:text-2xl group-hover:bg-black font-serif default-transition">
                                 <?php echo $content; ?>
                             </div>
 

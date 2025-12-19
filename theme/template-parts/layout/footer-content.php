@@ -15,13 +15,13 @@
 <div class="bg-[#f4f6f8] py-3 md:py-10">
 	<div class="container">
 		<div class="grid md:grid-cols-12 gap-6">
-			<div class="md:col-span-4 ">
+			<div class="col-span-12 lg:col-span-4 ">
 			
 				<?php get_template_part('template-parts/sidebar/sidebar', 'mailchimp'); ?>
 
 
 			</div>
-			<div class="md:col-span-3 md:col-start-7  ">
+			<div class="col-span-12 lg:col-span-3 lg:col-start-7  ">
 			<?php if (has_nav_menu('footer1')) : ?>
 				<h4 class="text-xl">
 					<?php echo wp_nav_menu_title('footer1'); ?>
@@ -41,7 +41,7 @@
 			</nav>
 		<?php endif; ?>
 		</div>
-		<div class="md:col-span-4 md:col-start-10 ">
+		<div class="col-span-12 lg:col-span-4 lg:col-start-10 ">
 			<?php if (has_nav_menu('footer2')) : ?>
 				<h4 class="text-xl">
 					<?php echo wp_nav_menu_title('footer2'); ?>
@@ -66,14 +66,14 @@
 </div>
 
 
-<div class="bg-primary py-10 md:py-20 text-white">
+<div class="bg-primary py-10 lg:py-20 text-white">
 	<div class="container">
-		<div class="grid md:grid-cols-12 gap-6">
+		<div class="grid grid-cols-12 gap-6">
 
-		<div class="md:col-span-6">
+		<div class="col-span-12 lg:col-span-6">
 
 		
-<div class="md:text-sm mb-6 text-center md:text-left">
+<div class="md:text-sm mb-6 text-center lg:text-left">
 						<?php
 			$bcc_blog_info = get_bloginfo('name');
 			if (! empty($bcc_blog_info)) :
@@ -83,11 +83,11 @@
 			endif;
 
 			/* translators: 1: WordPress link, 2: WordPress. */
-			printf(
-				'<a class="text-center md:text-left md:text-sm hover:opacity-50 default-transition" href="%1$s">proudly powered by %2$s</a>.',
-				esc_url(__('https://wordpress.org/', 'bcc')),
-				'WordPress'
-			);
+			// printf(
+			// 	'<a class="text-center lg:text-left md:text-sm hover:opacity-50 default-transition" href="%1$s">proudly powered by %2$s</a>.',
+			// 	esc_url(__('https://wordpress.org/', 'bcc')),
+			// 	'WordPress'
+			// );
 			?>
 			</div>
 
@@ -97,7 +97,7 @@
 
 					if ($link): ?>
 
-						<a class="my-10 md:my-0 block hover:opacity-70 default-transition" href="<?php echo $link; ?>" target="_blank">
+						<a class="my-10  text-center md:my-0 block hover:opacity-70 default-transition" href="<?php echo $link; ?>" target="_blank">
 
 							<?php
 
@@ -105,7 +105,7 @@
 
 							if (!empty($image)): ?>
 
-								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+								<img class="mx-auto xl:mx-0" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 
 							<?php endif; ?>
 
@@ -120,7 +120,7 @@
 		<?php endif; ?>
 		</div>
 
-		<div class="md:col-span-6  grid md:items-end justify-center md:justify-end text-center md:text-right">
+		<div class="col-span-12 lg:col-span-6  grid lg:items-end justify-center lg:justify-end text-center lg:text-right">
 			<div>
 <?php if (has_nav_menu('footerPrivacy')) : ?>
 				
@@ -129,7 +129,7 @@
 				wp_nav_menu(
 					array(
 						'theme_location' => 'footerPrivacy',
-						'menu_class'     => 'footer-menu flex flex-col md:flex-row gap-6 md:gap-3  [&_li:last-child_a]:after:hidden ',
+						'menu_class'     => 'footer-menu flex flex-col md:flex-row gap-1 md:gap-3  [&_li:last-child_a]:after:hidden ',
 						'depth'          => 1,
 						'item_class'  => 'nav-item ',
 						'link_class'   => 'default-transition hover:opacity-50 after:ml-3 md:after:content-["/"]'
@@ -139,7 +139,7 @@
 			</nav>
 		<?php endif; ?>
 
-		<div class="text-center md:text-right py-4">
+		<div class="text-center lg:text-right pt-10 md:py-4">
 						<p><?php the_field('credit_text', 'option'); ?> <a href="<?php the_field('credit_url', 'option'); ?>" target="_blank" class="hover:opacity-50 default-transition"><?php the_field('credit_author', 'option'); ?></a></p>
 					</div>
 					<!-- .site-info -->
