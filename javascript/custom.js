@@ -1,7 +1,34 @@
 // ─────────────────────────────────────────────
-// Navbar — shrink on scroll
+// HUD: helper UI utilities
 // ─────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
+function openNav() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const menuBtn = document.getElementById("menuBtn");
+  if (!sidebar || !overlay) return;
+
+  const isOpen = sidebar.getAttribute("data-state") === "open";
+  const nextState = isOpen ? "closed" : "open";
+
+  sidebar.setAttribute("data-state", nextState);
+  overlay.setAttribute("data-state", nextState);
+
+  sidebar.classList.toggle("translate-x-full", isOpen);
+  sidebar.classList.toggle("translate-x-0", !isOpen);
+
+  overlay.classList.toggle("opacity-0", isOpen);
+  overlay.classList.toggle("opacity-100", !isOpen);
+  overlay.classList.toggle("hidden", isOpen);
+  overlay.classList.toggle("block", !isOpen);
+  overlay.classList.toggle("pointer-events-none", isOpen);
+
+  if (menuBtn) {
+    menuBtn.setAttribute("aria-expanded", String(!isOpen));
+    menuBtn.setAttribute("aria-label", !isOpen ? "Close main menu" : "Open main menu");
+  }
+}
+
+function initNavbarScroll() {
   const navbar = document.querySelector(".navbar");
   if (!navbar) return;
 
@@ -11,69 +38,54 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener(
     "scroll",
     () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrolled = window.scrollY > 300;
-          navbar.classList.toggle("scrolled", scrolled);
+      if (ticking) return;
+      ticking = true;
 
-          if (scrolled) {
-            // Correct arithmetic: compute the value in JS, not in the string
-            navbar.style.height =
-              window.innerWidth < 992 ? "auto" : `${navHeight - 40}px`;
-          } else {
-            navbar.style.height = ""; // reset to CSS default
-          }
+      requestAnimationFrame(() => {
+        const scrolled = window.scrollY > 300;
+        navbar.classList.toggle("scrolled", scrolled);
 
-          ticking = false;
-        });
+        if (scrolled) {
+          navbar.style.height =
+            window.innerWidth < 992 ? "auto" : `${navHeight - 2}px`;
+        } else {
+          navbar.style.height = "";
+        }
 
-        ticking = true;
-      }
+        ticking = false;
+      });
     },
-    { passive: true } // Lets iOS scroll without waiting for JS
+    { passive: true }
   );
-});
-
-
-// ─────────────────────────────────────────────
-// Sidebar — open / close toggle
-// ─────────────────────────────────────────────
-function openNav() {
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-  if (!sidebar || !overlay) return;
-
-  const isOpen = sidebar.getAttribute("data-state") === "open";
-  const nextState = isOpen ? "closed" : "open";
-
-  // Single source of truth via data-state; use CSS to drive the visual states
-  sidebar.setAttribute("data-state", nextState);
-  overlay.setAttribute("data-state", nextState);
-
-  // Tailwind utility helpers
-  sidebar.classList.toggle("translate-x-full", isOpen);
-  sidebar.classList.toggle("translate-x-0", !isOpen);
-
-  overlay.classList.toggle("opacity-0", isOpen);
-  overlay.classList.toggle("opacity-100", !isOpen);
-  overlay.classList.toggle("hidden", isOpen);
-  overlay.classList.toggle("block", !isOpen);
-  overlay.classList.toggle("pointer-events-none", isOpen);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function initSidebarToggle() {
   const ids = ["homeBtn", "menuBtn", "closeBtn", "overlay"];
+
   ids.forEach((id) => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener("click", openNav);
+    if (!el) return;
+
+    let lastTouchEnd = 0;
+
+    el.addEventListener(
+      "touchstart",
+      () => {
+        lastTouchEnd = Date.now();
+        openNav();
+      },
+      { passive: true }
+    );
+
+    el.addEventListener("click", () => {
+      if (Date.now() - lastTouchEnd > 300) {
+        openNav();
+      }
+    });
   });
-});
+}
 
-
-// ─────────────────────────────────────────────
-// Accordion — directions / locations
-// ─────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
+function initAccordion() {
   const toggleBtns = document.querySelectorAll(
     ".bcc-location-directions-accordion .btn"
   );
@@ -88,13 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
+}
 
-
-// ─────────────────────────────────────────────
-// Hero scroll-down button
-// ─────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
+function initHeroScroll() {
   const scrollBtn = document.getElementById("scrollHeroDown");
   if (!scrollBtn) return;
 
@@ -103,19 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextSection = heroSection?.nextElementSibling;
     if (!nextSection) return;
 
-    const OFFSET = 380; // px offset from top of next section
-    const top =
-      nextSection.getBoundingClientRect().top + window.scrollY - OFFSET;
+    const OFFSET = window.innerWidth < 480 ? 200 : 380;
+    const top = nextSection.getBoundingClientRect().top + window.scrollY - OFFSET;
 
     window.scrollTo({ top, behavior: "smooth" });
   });
-});
+}
 
-
-// ─────────────────────────────────────────────
-// Sidebar sub-menu toggles
-// ─────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
+function initSubmenuToggle() {
   const toggleButtons = document.querySelectorAll(".submenu-toggle");
 
   toggleButtons.forEach((button) => {
@@ -131,4 +134,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (icon) icon.textContent = isOpen ? "add" : "remove";
     });
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initNavbarScroll();
+  initSidebarToggle();
+  initAccordion();
+  initHeroScroll();
+  initSubmenuToggle();
 });

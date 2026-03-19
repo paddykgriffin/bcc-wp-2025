@@ -2,12 +2,12 @@
     class="fixed z-50 bg-gray-200  h-full max-h-full overflow-y-auto transition-transform duration-500 ease-in-out w-3/4 sm:max-w-sm transform translate-x-full inset-y-0 right-0">
 
     <div class="bg-primary  px-3 py-4 flex items-center justify-between">
-        <button id="homeBtn" class="text-white ">
+        <button id="homeBtn" type="button" class="text-white" aria-label="<?php esc_attr_e('Home', 'bcc'); ?>" aria-controls="sidebar" aria-expanded="false">
             <span class="material-symbols-outlined !block !text-[40px]">home</span>
             <p class="sr-only"><?php esc_html_e('Home', 'bcc'); ?></p>
         </button>
 
-        <button id="closeBtn" class="text-white">
+        <button id="closeBtn" type="button" class="text-white" aria-label="<?php esc_attr_e('Close menu', 'bcc'); ?>" aria-controls="sidebar">
             <span class="material-symbols-outlined !block !text-[40px]">close</span>
             <p class="sr-only"><?php esc_html_e('Close Menu', 'bcc'); ?></p>
         </button>

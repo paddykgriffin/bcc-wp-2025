@@ -43,7 +43,7 @@
                         </div>
 
 
-                            <img class="col-start-1 row-start-1" src="<?php echo $image['sizes']['tile-md']; ?>" alt="<?php echo $image['alt'] ?>" />
+                            <img class="col-start-1 row-start-1 w-full" src="<?php echo $image['sizes']['tile-md']; ?>" alt="<?php echo $image['alt'] ?>" />
 
                             <?php if ($link): ?>
                             </a>

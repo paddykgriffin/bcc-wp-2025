@@ -50,8 +50,8 @@
 		?>
 	</nav><!-- #site-navigation -->
 
-	<button id="menuBtn" class="mt-3 xl:hidden text-white " aria-controls="primary-menu"
-    aria-expanded="false">
+	<button id="menuBtn" type="button" class="mt-3 xl:hidden text-white " aria-controls="sidebar"
+    aria-expanded="false" aria-label="<?php esc_attr_e('Open main menu', 'bcc'); ?>">
     <span class="material-symbols-outlined !block !text-[40px]">menu</span>
     <p class="sr-only"> <?php esc_html_e('Primary Menu', '_bless'); ?>
     </p>
