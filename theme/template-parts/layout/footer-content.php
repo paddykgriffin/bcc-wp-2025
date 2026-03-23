@@ -91,13 +91,15 @@
 			?>
 			</div>
 
+			<div class="flex flex-col md:flex-row gap-8 md:gap-2 py-10 md:py-0">
+
 				<?php
 
 					$link = get_field('footer_link', 'option');
 
 					if ($link): ?>
 
-						<a class="my-10  text-center md:my-0 block hover:opacity-70 default-transition" href="<?php echo $link; ?>" target="_blank">
+						<a class="text-center md:my-0 block hover:opacity-70 default-transition" href="<?php echo $link; ?>" target="_blank">
 
 							<?php
 
@@ -105,13 +107,39 @@
 
 							if (!empty($image)): ?>
 
-								<img class="mx-auto xl:mx-0" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+								<img class="mx-auto xl:mx-0 md:w-[240px]" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 
 							<?php endif; ?>
 
 						</a>
 
 					<?php endif; ?>
+
+
+					<?php
+
+					$linkTwo = get_field('footer_link_two', 'option');
+
+					if ($linkTwo): ?>
+
+						<a class="text-center md:my-0 block hover:opacity-70 default-transition" href="<?php echo $linkTwo; ?>" target="_blank">
+
+							<?php
+
+							$imageTwo = get_field('footer_logo_two', 'option');
+
+							if (!empty($imageTwo)): ?>
+
+								<img class="mx-auto xl:mx-0 md:w-[240px]" src="<?php echo $imageTwo['url']; ?>" alt="<?php echo $imageTwo['alt']; ?>" />
+
+							<?php endif; ?>
+
+						</a>
+
+					<?php endif; ?>
+ 
+					 </div>
+
 
 						<?php if (is_active_sidebar('sidebar-1')) : ?>
 			<aside role="complementary" aria-label="<?php esc_attr_e('Footer', 'bcc'); ?>">
