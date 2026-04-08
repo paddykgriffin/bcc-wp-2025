@@ -91,7 +91,7 @@
 			?>
 			</div>
 
-			<div class="flex flex-col md:flex-row gap-8 md:gap-2 py-10 md:py-0">
+			<div class="flex flex-col md:flex-row gap-8 py-10 md:py-0">
 
 				<?php
 

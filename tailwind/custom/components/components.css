@@ -112,7 +112,7 @@
 .search .navbar,
 .blog .navbar,
 .single .navbar {
-	@apply justify-between bg-[#1d1f10e6] py-5;
+	@apply bg-primary justify-between py-3;
 }
 .page-template .navbar .logo,
 .sermons-template-default .navbar .logo,
@@ -125,15 +125,18 @@
 	@apply block;
 }
 
+/* .home.page-template-default .navbar {
+	@apply justify-end !bg-transparent;
+} */
 .home.page-template-default .navbar {
-	@apply justify-end bg-black/20;
+	@apply bg-primary justify-between;
 }
-.home.page-template-default .navbar .logo {
+/* .home.page-template-default .navbar .logo {
 	@apply hidden;
-}
+} */
 
 .home.page-template-default .navbar.scrolled {
-	@apply justify-end bg-[#1d1f10e6];
+	@apply bg-primary justify-between;
 }
 
 .home.page-template-default .navbar.scrolled .logo {

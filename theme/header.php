@@ -29,6 +29,20 @@
 	<div id="page">
 		<a href="#content" class="sr-only"><?php esc_html_e('Skip to content', 'bcc'); ?></a>
 
-		<?php get_template_part('template-parts/layout/header', 'content'); ?>
+		
+
+		<?php 
+		if (is_front_page()) :
+?>
+
+<?php get_template_part('template-parts/layout/header', 'content'); ?>
+<?php
+		else :
+		?>
+
+		<?php get_template_part('template-parts/layout/header', 'content-v2'); ?>
+
+		<?php endif; ?>
+
 
 		<main id="content">
