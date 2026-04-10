@@ -1,3 +1,19 @@
 .building {
-	@apply bg-red-500;
+	@apply font-poppins;
+}
+
+.building-heading {
+	@apply text-tertiary pb-8 text-3xl font-semibold md:text-5xl;
+}
+
+.building p {
+	@apply mb-6;
+}
+
+.building-text-size {
+	@apply text-xl leading-8;
+}
+
+.building-fund-card {
+	@apply [&_h3]:text-tertiary [&_strong]:font-bold [&>p:first-of-type]:py-6 [&>p:first-of-type]:text-base [&>p:first-of-type]:leading-9 [&>p:first-of-type]:md:text-xl [&>p:last-of-type]:text-sm [&>p:last-of-type]:font-light [&>p:last-of-type]:italic;
 }

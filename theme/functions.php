@@ -8,7 +8,7 @@
  * @package bcc
  */
 
-if (! defined('BCC_VERSION')) {
+if (!defined('BCC_VERSION')) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -16,10 +16,10 @@ if (! defined('BCC_VERSION')) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define('BCC_VERSION', '1.1.17');
+	define('BCC_VERSION', '1.1.18');
 }
 
-if (! defined('BCC_TYPOGRAPHY_CLASSES')) {
+if (!defined('BCC_TYPOGRAPHY_CLASSES')) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -43,7 +43,7 @@ if (! defined('BCC_TYPOGRAPHY_CLASSES')) {
 	);
 }
 
-if (! function_exists('bcc_setup')) :
+if (!function_exists('bcc_setup')):
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -137,13 +137,13 @@ function bcc_widgets_init()
 {
 	register_sidebar(
 		array(
-			'name'          => __('Footer', 'bcc'),
-			'id'            => 'sidebar-1',
-			'description'   => __('Add widgets here to appear in your footer.', 'bcc'),
+			'name' => __('Footer', 'bcc'),
+			'id' => 'sidebar-1',
+			'description' => __('Add widgets here to appear in your footer.', 'bcc'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'after_widget' => '</section>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>',
 		)
 	);
 
@@ -160,16 +160,16 @@ function bcc_widgets_init()
 	);
 
 	register_sidebar(
-			array(
-				'name'          => __('Mailchimp Full', 'bcc'),
-				'id'            => 'mailchimp',
-				'description'   => __('Full sized footer widget with dynamic grid', 'understrap'),
-				'before_widget' => '<div id="%1$s" class="footer-widget %2$s ">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h4>',
-				'after_title'   => '</h4>',
-			)
-		);
+		array(
+			'name' => __('Mailchimp Full', 'bcc'),
+			'id' => 'mailchimp',
+			'description' => __('Full sized footer widget with dynamic grid', 'understrap'),
+			'before_widget' => '<div id="%1$s" class="footer-widget %2$s ">',
+			'after_widget' => '</div>',
+			'before_title' => '<h4>',
+			'after_title' => '</h4>',
+		)
+	);
 
 
 }
@@ -315,6 +315,13 @@ function enqueue_google_fonts2()
 add_action('wp_enqueue_scripts', 'enqueue_google_fonts2');
 
 
+function enqueue_google_fonts3()
+{
+	wp_enqueue_style('google-poppins', 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+}
+add_action('wp_enqueue_scripts', 'enqueue_google_fonts3');
+
+
 /**
  * Function add google icons to wp-head
  */
@@ -403,11 +410,12 @@ function wp_nav_menu_title($theme_location)
 /**
  * Function - Add Menu Item Class
  */
-function add_menu_list_item_class($classes, $item, $args) {
-  if (property_exists($args, 'list_item_class')) {
-      $classes[] = $args->list_item_class;
-  }
-  return $classes;
+function add_menu_list_item_class($classes, $item, $args)
+{
+	if (property_exists($args, 'list_item_class')) {
+		$classes[] = $args->list_item_class;
+	}
+	return $classes;
 }
 add_filter('nav_menu_css_class', 'add_menu_list_item_class', 1, 3);
 
@@ -415,13 +423,14 @@ add_filter('nav_menu_css_class', 'add_menu_list_item_class', 1, 3);
 /**
  * Function - Add Menu Link Class
  */
-function add_menu_link_class( $atts, $item, $args ) {
-  if (property_exists($args, 'link_class')) {
-    $atts['class'] = $args->link_class;
-  }
-  return $atts;
+function add_menu_link_class($atts, $item, $args)
+{
+	if (property_exists($args, 'link_class')) {
+		$atts['class'] = $args->link_class;
+	}
+	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+add_filter('nav_menu_link_attributes', 'add_menu_link_class', 1, 3);
 
 
 function custom_search_form($form)
@@ -441,39 +450,50 @@ function custom_search_form($form)
 add_filter('get_search_form', 'custom_search_form');
 
 
-class Walker_Nav_Menu_With_Button extends Walker_Nav_Menu {
+class Walker_Nav_Menu_With_Button extends Walker_Nav_Menu
+{
 
-    // Start each element output
-    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-        $has_children = in_array( 'menu-item-has-children', $classes );
+	// Start each element output
+	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+	{
+		$classes = empty($item->classes) ? array() : (array) $item->classes;
+		$has_children = in_array('menu-item-has-children', $classes);
 
-        // Determine if this item is the current page
-        $is_current = in_array( 'current-menu-item', $classes ) || in_array( 'current_page_item', $classes ) || in_array( 'current-menu-ancestor', $classes );
+		// Determine if this item is the current page
+		$is_current = in_array('current-menu-item', $classes) || in_array('current_page_item', $classes) || in_array('current-menu-ancestor', $classes);
 
-        // Build list item
-        $output .= '<li class="' . esc_attr( implode( ' ', $classes ) ) . '">';
+		// Build list item
+		$output .= '<li class="' . esc_attr(implode(' ', $classes)) . '">';
 
-        // Build link attributes
-        $attributes  = ' class="nav-mobile-link"';
-        $attributes .= ' href="' . esc_url( $item->url ) . '"';
-        if ( $is_current ) {
-            $attributes .= ' aria-current="page"';
-        }
+		// Build link attributes
+		$attributes = ' class="nav-mobile-link"';
+		$attributes .= ' href="' . esc_url($item->url) . '"';
+		if ($is_current) {
+			$attributes .= ' aria-current="page"';
+		}
 
-        // Output link
-        $output .= '<a' . $attributes . '>' . esc_html( $item->title ) . '</a>';
+		// Output link
+		$output .= '<a' . $attributes . '>' . esc_html($item->title) . '</a>';
 
-        // Add submenu toggle button if applicable
-        if ( $has_children ) {
-            $output .= '<button class="submenu-toggle" aria-expanded="false" aria-label="Toggle submenu">'
-                     . '<span class="material-symbols-outlined !block !text-[30px]">add</span>'
-                     . '</button>';
-        }
-    }
+		// Add submenu toggle button if applicable
+		if ($has_children) {
+			$output .= '<button class="submenu-toggle" aria-expanded="false" aria-label="Toggle submenu">'
+				. '<span class="material-symbols-outlined !block !text-[30px]">add</span>'
+				. '</button>';
+		}
+	}
 
-    // End each element
-    function end_el( &$output, $item, $depth = 0, $args = array() ) {
-        $output .= '</li>';
-    }
+	// End each element
+	function end_el(&$output, $item, $depth = 0, $args = array())
+	{
+		$output .= '</li>';
+	}
 }
+
+
+add_filter('baguettebox_selector', function ($selector) {
+	return $selector . ',.building-gallery,.floor-plan';
+});
+
+// Force assets to load even on pages with no native Gallery Block
+add_filter('baguettebox_enqueue_assets', '__return_true');
